@@ -8,7 +8,6 @@ namespace HMS
     {
         static void Main(string[] args)
         {
-
             //testing collection
 
             MyCustomCollection<int> collection = new MyCustomCollection<int>();
@@ -32,7 +31,16 @@ namespace HMS
 
 
             //testing HMS
+            Journal journal = new Journal();
             MyHMS newHMS = new MyHMS();
+            newHMS.NotifyRateChange += journal.AddEvent;
+            newHMS.NotifyTenantChange += journal.AddEvent;
+            newHMS.NotifyConsumption += (string eventName, string eventDescription)
+                => Console.WriteLine(eventName + eventDescription);
+
+            newHMS.AddTenant("Max");
+            newHMS.AddTenant("Oleg");
+
             newHMS.AddRate("Gas", 10);
             newHMS.AddRate("Electricity", 15);
             newHMS.AddRate("Whater", 30);
@@ -47,6 +55,8 @@ namespace HMS
             Console.WriteLine("Oleg - " + newHMS.GetAmountOfConsumedServicesByName("Oleg"));
             Console.WriteLine("Max - " + newHMS.GetAmountOfConsumedServicesByName("Max"));
             Console.WriteLine("Oleg+Max - " + newHMS.GetAmountOfConsumedServices());
+
+            journal.PrintAllEvents();
         }
     }
 }

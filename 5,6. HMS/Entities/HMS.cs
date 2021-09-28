@@ -1,11 +1,21 @@
 ﻿using System;
 using HMS.Collection;
+using HMS.Exceptions;
 
 namespace HMS.Entities
 {
     //housing maintenance service
     class MyHMS
     {
+        public delegate void ChangedRates(string eventName, string eventDescription);
+        public event ChangedRates NotifyRateChange;
+
+        public delegate void ChangedTenants(string eventName, string eventDescription);
+        public event ChangedTenants NotifyTenantChange;
+
+        public delegate void ChangedConsumption(string eventName, string eventDescription);
+        public event ChangedConsumption NotifyConsumption;
+
         MyCustomCollection<Rate> rates = new MyCustomCollection<Rate>();
         MyCustomCollection<Tenant> tenants = new MyCustomCollection<Tenant>();
         public int GetAmountOfConsumedServices()
@@ -32,7 +42,15 @@ namespace HMS.Entities
         }
         public void AddRate(string name, int cost)
         {
-            rates.Add(new Rate(name, cost));
+            Rate newRate = new Rate(name, cost);
+            rates.Add(newRate);
+            NotifyRateChange?.Invoke("Rate change", newRate.name + " cost is " + newRate.cost);
+        }
+        public void AddTenant(string name)
+        {
+            Tenant newTenant = new Tenant(name, 0);
+            tenants.Add(newTenant);
+            NotifyTenantChange?.Invoke("New tenant", newTenant.name + " was registered");
         }
         private int? GetRateCost(string rateName)
         {
@@ -50,17 +68,18 @@ namespace HMS.Entities
             int? rateCost = GetRateCost(rateName);
             if (rateCost == null)
             {
-                throw new Exception("No such rate");
+                throw new NullException("No such rate");
             } 
             for (int i = 0; i < tenants.Count; i++)
             {
                 if (tenants[i].name == tenantName)
                 {
-                    tenants[i].spending += servicesRendered * (int)rateCost;
-                    return;
+                    int totalCost = servicesRendered * (int)rateCost;
+                    tenants[i].spending += totalCost;
+                    NotifyConsumption?.Invoke("Consumption- ", tenantName + " spent " + totalCost + " on " + rateName);
+                    break;
                 }  
             }
-            tenants.Add(new Tenant(tenantName, servicesRendered * (int)rateCost));
         }
     }
 }
