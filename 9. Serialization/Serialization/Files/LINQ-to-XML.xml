@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Hospitals>
+  <Hospital Name="FirstHospital">
+    <Departments>
+      <Department Name="AdmissionDepartment">
+        <HeadOfDepartment Name="1Name" />
+      </Department>
+      <Department Name="TreatmentDepartment">
+        <HeadOfDepartment Name="2Name" />
+      </Department>
+      <Department Name="DiagnosticDepartment">
+        <HeadOfDepartment Name="3Name" />
+      </Department>
+    </Departments>
+  </Hospital>
+  <Hospital Name="SecondHospital">
+    <Departments>
+      <Department Name="AdmissionDepartment">
+        <HeadOfDepartment Name="4Name" />
+      </Department>
+      <Department Name="TreatmentDepartment">
+        <HeadOfDepartment Name="5Name" />
+      </Department>
+      <Department Name="DiagnosticDepartment">
+        <HeadOfDepartment Name="6Name" />
+      </Department>
+    </Departments>
+  </Hospital>
+  <Hospital Name="ThirdHospital">
+    <Departments>
+      <Department Name="AdmissionDepartment">
+        <HeadOfDepartment Name="7Name" />
+      </Department>
+      <Department Name="TreatmentDepartment">
+        <HeadOfDepartment Name="8Name" />
+      </Department>
+      <Department Name="DiagnosticDepartment">
+        <HeadOfDepartment Name="9Name" />
+      </Department>
+    </Departments>
+  </Hospital>
+  <Hospital Name="FourthHospital">
+    <Departments>
+      <Department Name="AdmissionDepartment">
+        <HeadOfDepartment Name="10Name" />
+      </Department>
+      <Department Name="TreatmentDepartment">
+        <HeadOfDepartment Name="11Name" />
+      </Department>
+      <Department Name="DiagnosticDepartment">
+        <HeadOfDepartment Name="12Name" />
+      </Department>
+    </Departments>
+  </Hospital>
+  <Hospital Name="FifthHospital">
+    <Departments>
+      <Department Name="AdmissionDepartment">
+        <HeadOfDepartment Name="13Name" />
+      </Department>
+      <Department Name="TreatmentDepartment">
+        <HeadOfDepartment Name="14Name" />
+      </Department>
+      <Department Name="DiagnosticDepartment">
+        <HeadOfDepartment Name="15Name" />
+      </Department>
+    </Departments>
+  </Hospital>
+</Hospitals>

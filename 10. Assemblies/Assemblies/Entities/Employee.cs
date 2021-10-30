@@ -1,4 +1,4 @@
-﻿namespace FileService.Entities
+﻿namespace Assemblies.Entities
 {
     public class Employee
     {
@@ -16,7 +16,7 @@
         public override string ToString()
         {
             string isIntern = IsIntern ? "Intern " : "Permanent employee ";
-            return isIntern + Name + " has salary -" + Salary;  
+            return isIntern + Name + " has salary - " + Salary;  
         }
     }
 }

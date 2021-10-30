@@ -1,0 +1,112 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Serialization.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Serialization.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Serialization.Domain.dll": {}
+        }
+      },
+      "Serializer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Serialization.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Serializer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Serializer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Serialization.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Serialization.Domain/Serialization.Domain.csproj",
+      "msbuildProject": "../Serialization.Domain/Serialization.Domain.csproj"
+    },
+    "Serializer/1.0.0": {
+      "type": "project",
+      "path": "../Serializer/Serializer.csproj",
+      "msbuildProject": "../Serializer/Serializer.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Serialization.Domain >= 1.0.0",
+      "Serializer >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\olegv\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serialization\\Serialization.csproj",
+      "projectName": "Serialization",
+      "projectPath": "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serialization\\Serialization.csproj",
+      "packagesPath": "C:\\Users\\olegv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serialization\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\olegv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serialization.Domain\\Serialization.Domain.csproj": {
+              "projectPath": "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serialization.Domain\\Serialization.Domain.csproj"
+            },
+            "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serializer\\Serializer.csproj": {
+              "projectPath": "C:\\Users\\olegv\\Desktop\\Labs\\c_sharp_labs_2\\9. Serialization\\Serializer\\Serializer.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
