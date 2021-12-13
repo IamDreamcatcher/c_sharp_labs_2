@@ -30,14 +30,21 @@ namespace HMS.Entities
         }
         public int GetAmountOfConsumedServicesByName(string name)
         {
-            var newTenants = from tenant in tenants
-                             where tenant.name == name
-                             select tenant;
-            if (newTenants.Count() == 0)
-            {
-                throw new NullReferenceException("No such tenant");
-            }
-            return newTenants.First().cost;
+            //var newTenants = from tenant in tenants
+            //                 where tenant.name == name
+            //                 select tenant;
+
+            var cost = tenants.FirstOrDefault(t => t.name == name)?.cost;
+
+            if (cost.HasValue)
+                return cost.Value;
+            throw new NullReferenceException("No such tenant");
+
+            //if (newTenants.Count() == 0)
+            //{
+            //    throw new NullReferenceException("No such tenant");
+            //}
+            //return newTenants.First().cost;
         }
         public void AddRate(string name, int cost)
         {

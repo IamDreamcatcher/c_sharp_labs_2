@@ -23,8 +23,10 @@ namespace Passengers
             string fileName = @"C:\Users\olegv\Desktop\Labs\c_sharp_labs_2\11. Multithreading\Passengers\Passengers\Files\Passengers.xml";
             using (MemoryStream memoryStream = new MemoryStream())
             {
-                await streamService.WriteToStream(memoryStream, passengers);
-                await streamService.CopyFromStream(memoryStream, fileName);
+                var task1 = streamService.WriteToStream(memoryStream, passengers);
+                await Task.Delay(100);
+                var task2 = streamService.CopyFromStream(memoryStream, fileName);
+                await Task.WhenAll(new Task[] { task1, task2 });
             }
             int count = streamService.GetStatisticsAsync(fileName,
                 (passenger) => passenger.HaveBaggage).Result;

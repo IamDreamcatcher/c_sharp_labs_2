@@ -1,6 +1,5 @@
 ﻿using System;
 using HMS.Entities;
-using System.Collections.Generic;
 
 namespace HMS
 {
